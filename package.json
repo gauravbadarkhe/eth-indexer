@@ -4,7 +4,8 @@
   "description": "Writing my first Indexer to query The Ethereum Block Chain",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ganache": "ganache --wallet.seed testingseed"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/gauravbadarkhe/eth-indexer/issues"
   },
-  "homepage": "https://github.com/gauravbadarkhe/eth-indexer#readme"
+  "homepage": "https://github.com/gauravbadarkhe/eth-indexer#readme",
+  "dependencies": {
+    "ganache": "^7.9.1",
+     
+    "web3": "^4.1.1"
+  }
 }

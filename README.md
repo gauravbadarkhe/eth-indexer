@@ -7,6 +7,7 @@ Writing my first Indexer to query The Ethereum Block Chain
 ### Steps Needed to Build This
 
 - [x] Run A Node Locally.
+- [ ] Connect To The Block chain locally.
 - [ ] Read Block Chain Data
 - [ ] Parse "Transactions, Accounts...etc"
 - [ ] Select a data 
@@ -46,4 +47,8 @@ geth --http --http.api eth,net,engine,admin --authrpc.jwtsecret /path/to/jwt.hex
 ./prysm.sh beacon-chain --execution-endpoint=http://localhost:8551 --jwt-secret=path/to/jwt.hex 
 ```
 
+## 4 PM Slight Hickup 
+No peers are connections, the eth.blockNumber returns zero, no in bound connection on my local network either... looks like JIO wont allow inbound traffic. While we can try setting up everything we've done on a proper server for now lets focus on the next step. 
 
+## Read Block Chain Data Using [Ganache](https://ganache.dev/)
+For now well use dummy Blockchain Data to write all our code later on we will run the node and query the entire blockchain.

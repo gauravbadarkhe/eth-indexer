@@ -1,0 +1,19 @@
+{
+  "name": "eth-indexer",
+  "version": "1.0.0",
+  "description": "Writing my first Indexer to query The Ethereum Block Chain",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gauravbadarkhe/eth-indexer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gauravbadarkhe/eth-indexer/issues"
+  },
+  "homepage": "https://github.com/gauravbadarkhe/eth-indexer#readme"
+}

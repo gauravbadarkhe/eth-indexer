@@ -6,8 +6,8 @@ Writing my first Indexer to query The Ethereum Block Chain
 
 ### Steps Needed to Build This
 
+- [x] Run A Node Locally.
 - [ ] Read Block Chain Data
-    - [ ] Run A local Client Node.
 - [ ] Parse "Transactions, Accounts...etc"
 - [ ] Select a data 
 - [ ] Cleanup and store data in db 
@@ -18,8 +18,32 @@ Writing my first Indexer to query The Ethereum Block Chain
 - [ ] Done! Now lets Grab a coffee!  
 
 
-##  2PM - Read Block Chain Data
+##  2PM - Run A Node Locally.
 **Problem :** 
 I need some way to read the eth block-chain??  
 
-**Solution :** We can use other api's BUT thats cheating. Lets run our own Full Node.
+**Solution :** We can use other api's BUT thats cheating. Lets run our own [Full Node](https://ethereum.org/en/run-a-node/), [GETH](https://ethereum.org/en/run-a-node/) Seems like a good start.
+
+- Looks like GETH is not enough on its own. We need a concensus client. [prylabs](https://docs.prylabs.network/docs/install/install-with-script)Seems like a good optons.
+
+-- 🚀🚀🚀 2:58PM Our Exection Layer, Beacon Node Both are running. Things are looking promissing now.
+
+```
+##Install Goeth
+brew install ethereum 
+
+##Download Prysm
+curl https://raw.githubusercontent.com/prysmaticlabs/prysm/master/prysm.sh --output prysm.sh && chmod +x prysm.sh
+
+## Generate JWT Secret
+./prysm.sh beacon-chain generate-auth-secret
+
+## Run Execution Node
+geth --http --http.api eth,net,engine,admin --authrpc.jwtsecret /path/to/jwt.hex 
+
+
+## Run Beacon Node
+./prysm.sh beacon-chain --execution-endpoint=http://localhost:8551 --jwt-secret=path/to/jwt.hex 
+```
+
+

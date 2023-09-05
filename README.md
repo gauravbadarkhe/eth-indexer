@@ -7,7 +7,7 @@ Writing my first Indexer to query The Ethereum Block Chain
 ### Steps Needed to Build This
 
 - [ ] Read Block Chain Data
-        - [ ] Run A local Client Node.
+    - [ ] Run A local Client Node.
 - [ ] Parse "Transactions, Accounts...etc"
 - [ ] Select a data 
 - [ ] Cleanup and store data in db 
@@ -19,5 +19,6 @@ Writing my first Indexer to query The Ethereum Block Chain
 
 
 ##  2PM - Read Block Chain Data
-**Problem : ** I need some way to read the eth block-chain??
-**Solution : ** We can use other api's BUT thats cheating. Lets run our own Full Node.
+**Problem👇** 
+I need some way to read the eth block-chain??
+**Solution👇** We can use other api's BUT thats cheating. Lets run our own Full Node.

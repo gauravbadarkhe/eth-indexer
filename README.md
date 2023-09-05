@@ -20,5 +20,6 @@ Writing my first Indexer to query The Ethereum Block Chain
 
 ##  2PM - Read Block Chain Data
 **Problem👇** 
-I need some way to read the eth block-chain??
+I need some way to read the eth block-chain??  
+
 **Solution👇** We can use other api's BUT thats cheating. Lets run our own Full Node.

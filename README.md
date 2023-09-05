@@ -10,7 +10,7 @@ Writing my first Indexer to query The Ethereum Block Chain
 - [ ] Connect To The Block chain locally.
 - [ ] Read Block Chain Data
 - [ ] Parse "Transactions, Accounts...etc"
-- [ ] Select a data 
+- [ ] Select a db 
 - [ ] Cleanup and store data in db 
 - [ ] Use Graph QL To Querry The Database 
 - [ ] Simple React Frontend
@@ -47,8 +47,21 @@ geth --http --http.api eth,net,engine,admin --authrpc.jwtsecret /path/to/jwt.hex
 ./prysm.sh beacon-chain --execution-endpoint=http://localhost:8551 --jwt-secret=path/to/jwt.hex 
 ```
 
-## 4 PM Slight Hickup 
+### 4 PM Slight Hickup 
 No peers are connections, the eth.blockNumber returns zero, no in bound connection on my local network either... looks like JIO wont allow inbound traffic. While we can try setting up everything we've done on a proper server for now lets focus on the next step. 
 
-## Read Block Chain Data Using [Ganache](https://ganache.dev/)
-For now well use dummy Blockchain Data to write all our code later on we will run the node and query the entire blockchain.
+## Read Block Chain Data Using [infura](https://app.infura.io/)
+For now well use infura as our node provider later on we will run the node and query the entire blockchain on our server.
+
+### 4:30 PM Infura Seems promission
+We have successfull figured out how to read data from blockchain. Now lets parse it and store it.
+
+## Parsing Data 
+Parsing data seems straight forward i.e we just start from block 1 and start recording all transaction and block data till we reach the n'th (latest block)
+
+~~~
+Block --> Transaction List --> Individual Transaction --> Presist In DB
+~~~
+
+## Selecting a DB
+MongoDB is going to be my personl choice. 

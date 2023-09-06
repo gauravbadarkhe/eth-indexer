@@ -70,7 +70,7 @@ I have few credits on digital ocean, i think its time....lets run a node (execut
 The Node is finalyy syncing data BUT it will take a long time to sync and it will cost a lot of money so for now i will leave it on for a few days and see wahts but but lets use a provider for now if we have a fully synced node we will start reading from our node.
 ![eth_node_scrnshot](https://github.com/gauravbadarkhe/eth-indexer/assets/9333176/a5fafd2b-d56a-40cb-92d3-dbf8edf6d013)
 
-# Switching from [infura](https://app.infura.io/) to [blastapi]https://blastapi.io/
+# Switching from [infura](https://app.infura.io/) to [blastapi](https://blastapi.io/)
 
 The Code base looks promissing. Things are shapin up. I've have switched the provider from [infura](https://app.infura.io/) to [blastapi](https://blastapi.io/) as we needed to subscribe to events on the chain like new block creation so that we can index it. Infura does not provice that atlest for "free". but blast api does.
 

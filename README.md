@@ -14,7 +14,7 @@ Writing my first Indexer to query The Ethereum Block Chain
 - [x] Live Logs of the indexer syncing
 - [x] Cleanup and store data in db
 - [ ] Catch Errors in Syncing and add to the remote log service
-- [ ] Use Graph QL To Querry The Database
+- [ ] Use Graph QL To Querry The Database --May be
 - [ ] Simple React Frontend
 - [ ] Dockerise
 - [ ] Test & Deploy

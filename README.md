@@ -85,4 +85,4 @@ And well add more storage as and when we need it.
 
 ## Switching from [infura](https://app.infura.io/) to [blastapi]https://blastapi.io/
 
-The Code base looks promissing. Things are shapin up. I've have switched the provider from [infura](https://app.infura.io/) to [blastapi]https://blastapi.io/ as we needed to subscribe to events on the chain like new block creation so that we can index it. Infura does not provice that atlest for "free". but blast api does.
+The Code base looks promissing. Things are shapin up. I've have switched the provider from [infura](https://app.infura.io/) to [blastapi](https://blastapi.io/) as we needed to subscribe to events on the chain like new block creation so that we can index it. Infura does not provice that atlest for "free". but blast api does.

@@ -74,5 +74,6 @@ And well add more storage as and when we need it.
 
 
 **It's Working!!**
-![Screenshot](eth_node_scrnshot.png)
+![eth_node_scrnshot](https://github.com/gauravbadarkhe/eth-indexer/assets/9333176/a5fafd2b-d56a-40cb-92d3-dbf8edf6d013)
+
 

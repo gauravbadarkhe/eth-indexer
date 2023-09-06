@@ -12,7 +12,7 @@ Writing my first Indexer to query The Ethereum Block Chain
 - [x] Parse "Transactions, Accounts...etc"
 - [x] Select a db
 - [x] Live Logs of the indexer syncing
-- [ ] Cleanup and store data in db
+- [x] Cleanup and store data in db
 - [ ] Catch Errors in Syncing and add to the remote log service
 - [ ] Use Graph QL To Querry The Database
 - [ ] Simple React Frontend

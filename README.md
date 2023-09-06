@@ -76,7 +76,10 @@ The Code base looks promissing. Things are shapin up. I've have switched the pro
 
 # Parsing Data
 
-Parsing data seems straight forward i.e we just start from block 1 and start recording all transaction and block data till we reach the n'th (latest block)
+Parsing data seems straight forward but its a 3 step procress.  
+**Step 1** : Using Subscriptions lets start indexing latest blocks.  
+**Step 2** : Start indexing from genesus block till we reach indexed blocks  
+**Step 3** : Run Block and transaction Checkers to account for erros during first pass of indexing. Once a block is marked indexed no need to ever check it again.
 
 ```
 Block --> Transaction List --> Individual Transaction --> Presist In DB

@@ -63,9 +63,7 @@ We have successfull figured out how to read data from blockchain. Now lets parse
 
 # Update : I really want to run a proper node.
 
-I have few credits on digital ocean, i think its time....lets run a node (execution and concensus only)
-I'll Be using 8gb ram and 160GB Volumn Droplet
-And well add more storage as and when we need it.
+I have few credits on digital ocean, i think its time....lets run a node (execution and concensus only).
 
 # It's Working!!
 

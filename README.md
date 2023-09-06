@@ -4,7 +4,7 @@ Writing my first Indexer to query The Ethereum Block Chain
 
 **I'll be live blogging this captruing my thoughts on how we can build an Indexer from scratch (Backend, Database & Hopefullhy Front End as Well) in a single evening.🤞**
 
-### Steps Needed to Build This
+# Steps Needed to Build This
 
 - [x] Run A Node Locally.
 - [x] Connect To The Block chain locally.
@@ -20,7 +20,7 @@ Writing my first Indexer to query The Ethereum Block Chain
 - [ ] Test & Deploy
 - [ ] Done! Now lets Grab a coffee!
 
-### 2PM - Run A Node Locally.
+# 2PM - Run A Node Locally.
 
 **Problem :**
 I need some way to read the eth block-chain??
@@ -49,34 +49,34 @@ geth --http --http.api eth,net,engine,admin --authrpc.jwtsecret /path/to/jwt.hex
 ./prysm.sh beacon-chain --execution-endpoint=http://localhost:8551 --jwt-secret=path/to/jwt.hex
 ```
 
-### 4 PM Slight Hickup
+# 4 PM Slight Hickup
 
 No peers are connections, the eth.blockNumber returns zero, no in bound connection on my local network either... looks like JIO wont allow inbound traffic. While we can try setting up everything we've done on a proper server for now lets focus on the next step.
 
-### Read Block Chain Data Using [infura](https://app.infura.io/)
+# Read Block Chain Data Using [infura](https://app.infura.io/)
 
 For now well use infura as our node provider later on we will run the node and query the entire blockchain on our server.
 
-### 4:30 PM Infura Seems promission
+# 4:30 PM Infura Seems promission
 
 We have successfull figured out how to read data from blockchain. Now lets parse it and store it.
 
-### Update : I really want to run a proper node.
+# Update : I really want to run a proper node.
 
 I have few credits on digital ocean, i think its time....lets run a node.
 I'll Be using 8gb ram and 160GB Volumn Droplet
 And well add more storage as and when we need it.
 
-### It's Working!!
+# It's Working!!
 
 The Node is finalyy syncing data BUT it will take a long time to sync and it will cost a lot of money so for now i will leave it on for a few days and see wahts but but lets use a provider for now if we have a fully synced node we will start reading from our node.
 ![eth_node_scrnshot](https://github.com/gauravbadarkhe/eth-indexer/assets/9333176/a5fafd2b-d56a-40cb-92d3-dbf8edf6d013)
 
-### Switching from [infura](https://app.infura.io/) to [blastapi]https://blastapi.io/
+# Switching from [infura](https://app.infura.io/) to [blastapi]https://blastapi.io/
 
 The Code base looks promissing. Things are shapin up. I've have switched the provider from [infura](https://app.infura.io/) to [blastapi](https://blastapi.io/) as we needed to subscribe to events on the chain like new block creation so that we can index it. Infura does not provice that atlest for "free". but blast api does.
 
-### Parsing Data
+# Parsing Data
 
 Parsing data seems straight forward i.e we just start from block 1 and start recording all transaction and block data till we reach the n'th (latest block)
 
@@ -84,6 +84,6 @@ Parsing data seems straight forward i.e we just start from block 1 and start rec
 Block --> Transaction List --> Individual Transaction --> Presist In DB
 ```
 
-### Selecting a DB
+# Selecting a DB
 
 MongoDB is going to be my personl choice.

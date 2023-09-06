@@ -1,5 +1,5 @@
 import Graceful from "node-graceful";
-import web3_instance from "../instances/web3_instance.js";
+import web3_instance, { web3_helpers } from "../instances/web3_instance.js";
 
 class SubscriptionManager {
   constructor() {
@@ -17,7 +17,19 @@ class SubscriptionManager {
   }
 
   subscribe(eventTag, dataCallback, errorCallback) {
-    web3_instance.eth.subscribe("newBlockHeaders").then((subscription) => {
+    if (
+      eventTag === SUB_EVENTS.NEW_BLOCK_HEADERS &&
+      web3_helpers.getLiveIndexerStaus()
+    ) {
+      throw new Error(
+        `Indexer for event ${SUB_EVENTS.NEW_BLOCK_HEADER} already exists.`
+      );
+    }
+
+    web3_instance.eth.subscribe(eventTag).then((subscription) => {
+      if (eventTag === SUB_EVENTS.NEW_BLOCK_HEADERS)
+        web3_helpers.setLiveIndexerStatus(true);
+
       this.subscriptions[eventTag] = subscription;
 
       subscription.on("data", function (blockHeader) {

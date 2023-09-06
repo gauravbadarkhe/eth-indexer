@@ -85,6 +85,10 @@ Parsing data seems straight forward but its a 3 step procress.
 Block --> Transaction List --> Individual Transaction --> Presist In DB
 ```
 
-# Selecting a DB
+## Selecting a DB
 
 MongoDB is going to be my personl choice.
+
+# We have a live indexer!
+
+Using Subscribtions we are able to get latest block and index the black along with the transactions in the datbase. We are verry clost to being done now.

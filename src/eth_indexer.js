@@ -31,7 +31,7 @@ export default class BlockReader {
   }
 
   async loadTransaction(transactionId){
-    const transaction =  await this.web3Instance.eth.getTransaction(transactionId);
+    const transaction =  await this.web3Instance.eth.(transactionId);
     return transaction;
   }
 

@@ -1,27 +1,29 @@
 # eth-indexer
-Writing my first Indexer to query The Ethereum Block Chain
 
+Writing my first Indexer to query The Ethereum Block Chain
 
 **I'll be live blogging this captruing my thoughts on how we can build an Indexer from scratch (Backend, Database & Hopefullhy Front End as Well) in a single evening.🤞**
 
 ### Steps Needed to Build This
 
 - [x] Run A Node Locally.
-- [ ] Connect To The Block chain locally.
-- [ ] Read Block Chain Data
-- [ ] Parse "Transactions, Accounts...etc"
-- [ ] Select a db 
-- [ ] Cleanup and store data in db 
-- [ ] Use Graph QL To Querry The Database 
+- [x] Connect To The Block chain locally.
+- [x] Read Block Chain Data
+- [x] Parse "Transactions, Accounts...etc"
+- [x] Select a db
+- [ ] Cleanup and store data in db
+- [ ] Live Logs of the indexer syncing
+- [ ] Catch Errors in Syncing and add to the remote log service
+- [ ] Use Graph QL To Querry The Database
 - [ ] Simple React Frontend
-- [ ] Dockerise 
+- [ ] Dockerise
 - [ ] Test & Deploy
-- [ ] Done! Now lets Grab a coffee!  
+- [ ] Done! Now lets Grab a coffee!
 
+## 2PM - Run A Node Locally.
 
-##  2PM - Run A Node Locally.
-**Problem :** 
-I need some way to read the eth block-chain??  
+**Problem :**
+I need some way to read the eth block-chain??
 
 **Solution :** We can use other api's BUT thats cheating. Lets run our own [Full Node](https://ethereum.org/en/run-a-node/), [GETH](https://ethereum.org/en/run-a-node/) Seems like a good start.
 
@@ -31,7 +33,7 @@ I need some way to read the eth block-chain??
 
 ```
 ##Install Goeth
-brew install ethereum 
+brew install ethereum
 
 ##Download Prysm
 curl https://raw.githubusercontent.com/prysmaticlabs/prysm/master/prysm.sh --output prysm.sh && chmod +x prysm.sh
@@ -40,40 +42,47 @@ curl https://raw.githubusercontent.com/prysmaticlabs/prysm/master/prysm.sh --out
 ./prysm.sh beacon-chain generate-auth-secret
 
 ## Run Execution Node
-geth --http --http.api eth,net,engine,admin --authrpc.jwtsecret /path/to/jwt.hex 
+geth --http --http.api eth,net,engine,admin --authrpc.jwtsecret /path/to/jwt.hex
 
 
 ## Run Beacon Node
-./prysm.sh beacon-chain --execution-endpoint=http://localhost:8551 --jwt-secret=path/to/jwt.hex 
+./prysm.sh beacon-chain --execution-endpoint=http://localhost:8551 --jwt-secret=path/to/jwt.hex
 ```
 
-### 4 PM Slight Hickup 
-No peers are connections, the eth.blockNumber returns zero, no in bound connection on my local network either... looks like JIO wont allow inbound traffic. While we can try setting up everything we've done on a proper server for now lets focus on the next step. 
+### 4 PM Slight Hickup
+
+No peers are connections, the eth.blockNumber returns zero, no in bound connection on my local network either... looks like JIO wont allow inbound traffic. While we can try setting up everything we've done on a proper server for now lets focus on the next step.
 
 ## Read Block Chain Data Using [infura](https://app.infura.io/)
+
 For now well use infura as our node provider later on we will run the node and query the entire blockchain on our server.
 
 ### 4:30 PM Infura Seems promission
+
 We have successfull figured out how to read data from blockchain. Now lets parse it and store it.
 
-## Parsing Data 
+## Parsing Data
+
 Parsing data seems straight forward i.e we just start from block 1 and start recording all transaction and block data till we reach the n'th (latest block)
 
-~~~
+```
 Block --> Transaction List --> Individual Transaction --> Presist In DB
-~~~
+```
 
 ## Selecting a DB
-MongoDB is going to be my personl choice. 
 
+MongoDB is going to be my personl choice.
 
 ## Update : I really want to run a proper node.
+
 I have few credits on digital ocean, i think its time....lets run a node.
 I'll Be using 8gb ram and 160GB Volumn Droplet
 And well add more storage as and when we need it.
 
-
 **It's Working!!**
+
 ![eth_node_scrnshot](https://github.com/gauravbadarkhe/eth-indexer/assets/9333176/a5fafd2b-d56a-40cb-92d3-dbf8edf6d013)
 
+## Switching from [infura](https://app.infura.io/) to [blastapi]https://blastapi.io/
 
+The Code base looks promissing. Things are shapin up. I've have switched the provider from [infura](https://app.infura.io/) to [blastapi]https://blastapi.io/ as we needed to subscribe to events on the chain like new block creation so that we can index it. Infura does not provice that atlest for "free". but blast api does.

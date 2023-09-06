@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "Writing my first Indexer to query The Ethereum Block Chain",
   "main": "index.js",
-  "module": "module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "ganache": "ganache --wallet.seed testingseed"
+    "ganache": "ganache --wallet.seed testingseed",
+    "start_w_log": "NEW_RELIC_APP_NAME=eth-indexer NEW_RELIC_LICENSE_KEY=eu01xxeeaebeb66c55dc92eb4780dac4FFFFNRAL node -r newrelic eth.js"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,10 @@
     "dotenv": "^16.3.1",
     "ganache": "^7.9.1",
     "graceful-goodbye": "^1.3.0",
+    "log": "^6.3.1",
+    "log-node": "^8.0.3",
     "mongodb": "^6.0.0",
+    "newrelic": "^11.0.0",
     "node-graceful": "^3.1.0",
     "web3": "^4.1.1"
   }

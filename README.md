@@ -65,3 +65,14 @@ Block --> Transaction List --> Individual Transaction --> Presist In DB
 
 ## Selecting a DB
 MongoDB is going to be my personl choice. 
+
+
+## Update : I really want to run a proper node.
+I have few credits on digital ocean, i think its time....lets run a node.
+I'll Be using 8gb ram and 160GB Volumn Droplet
+And well add more storage as and when we need it.
+
+
+**It's Working!!**
+![Screenshot](eth_node_scrnshot.png)
+

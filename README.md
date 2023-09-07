@@ -56,27 +56,27 @@ For now well use infura as our node provider later on we will run the node and q
 
 # 4:30 PM Infura Seems promission
 
-We have successfull figured out how to read data from blockchain. Now lets parse it and store it.
+We have successfull figured out how to read data from blockchain. Using web3.js and Web Socket connection provided by infura. Now lets parse it and store it.
 
 # Update : I really want to run a proper node.
 
 I have few credits on digital ocean, i think its time....lets run a node (execution and concensus only).
 
-# It's Working!!
+# 9PM : It's Working!!
 
-The Node is finalyy syncing data BUT it will take a long time to sync and it will cost a lot of money so for now i will leave it on for a few days and see wahts but but lets use a provider for now if we have a fully synced node we will start reading from our node.
+The Node is finally syncing data BUT it will take a long time to sync and it will cost a lot of money so for now i will leave it on for a few days and see what happens. But lets use a provider for now if we have a fully synced node we will start reading from our node.
 ![eth_node_scrnshot](https://github.com/gauravbadarkhe/eth-indexer/assets/9333176/a5fafd2b-d56a-40cb-92d3-dbf8edf6d013)
 
-# Switching from [infura](https://app.infura.io/) to [blastapi](https://blastapi.io/)
+# Next Day 2PM : Switching from [infura](https://app.infura.io/) to [blastapi](https://blastapi.io/)
 
-The Code base looks promissing. Things are shapin up. I've have switched the provider from [infura](https://app.infura.io/) to [blastapi](https://blastapi.io/) as we needed to subscribe to events on the chain like so that we can index it. Infura does not provice that atleast for "free". but blast api does.
+The Code base looks promissing. Things are shapin up. I've have switched the provider from [infura](https://app.infura.io/) to [blastapi](https://blastapi.io/) as we needed to subscribe to events on the chain so that we can keep the index upto date. Infura does not provice that atleast for "free". but blast api does🥺.
 
-# Parsing Data
+# 5PM Parsing Data
 
 Parsing data seems straight forward but its a 3 step procress.  
 **Step 1** : Using Subscriptions lets start indexing latest blocks.  
 **Step 2** : Start indexing from genesus block till we reach indexed blocks  
-**Step 3** : Run Block and transaction Checkers to account for erros during first pass of indexing. Once a block is marked indexed no need to ever check it again.
+**Step 3** : Run Block and transaction Checkers to account for erros during first pass of indexing. Once a block is marked indexed no need to ever check it again. (We can potentially check the hashes and the integrity of data BUT that is outside the scope at the moment)
 
 ```
 Block --> Transaction List --> Individual Transaction --> Presist In DB
@@ -84,12 +84,12 @@ Block --> Transaction List --> Individual Transaction --> Presist In DB
 
 ## Selecting a DB
 
-MongoDB is going to be my personl choice.
+MongoDB is going to be my personl choice. Easy to use, flexible schema heavily scalable and with [Atlas](https://cloud.mongodb.com/) I Can get lots of cool features out of the box like GraphQL support and its free.
 
 # 🚀🚀We have a live indexer!🚀🚀
-
 Using Subscribtions we are able to get latest block and index the black along with the transactions in the datbase. We are verry clost to being done now.
 
-# It's Done 💪
 
+
+# 8PM : It's Done 💪
 We can now index blocks on ethereum network. We can even query legacy blocks BUT it consts money so....lets not do that right now.

@@ -37,7 +37,7 @@ class SubscriptionManager {
       });
 
       subscription.on("error", (err) => {
-        console.error(`SubscriptionManager Error On ${event}`, err);
+        console.error(`SubscriptionManager Error On ${eventTag}`, err);
         errorCallback(err);
       });
     });

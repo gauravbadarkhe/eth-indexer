@@ -3,20 +3,28 @@ import web3_instance, { web3_helpers } from "../instances/web3_instance.js";
 import { COLLECTIONS, insertOne } from "../instances/mongo_instance.js";
 
 export default class EthereumIndexer {
-  constructor({ startingBlock, liveIndexer }) {
+  constructor({ startingBlock, liveIndexer, storeInDB }) {
     this.startingBlock = startingBlock;
     this.liveIndexer = liveIndexer;
+    this.storeInDB = storeInDB;
 
     if (liveIndexer) {
       this.startLiveIndex();
     }
   }
 
+  registerCallback(callack) {
+    this.callack = callack;
+  }
+
   startLiveIndex() {
     subscriptionManager.subscribe(
       SUB_EVENTS.NEW_BLOCK_HEADERS,
       async (data) => {
-        console.log("data", data);
+        console.log(
+          "NEW_BLOCK_HEADERS",
+          data && data.number ? data.number : "NA"
+        );
 
         this.loadAndSaveBlock(data.number).catch(console.error);
       },
@@ -32,8 +40,18 @@ export default class EthereumIndexer {
 
   async loadAndSaveBlock(blockNumber) {
     const block = await web3_helpers.getBlockByNumber(blockNumber);
+
+    if (this.callack) {
+      //In case we only want to listen and not presists. (Mostly because of server storeage constraints)
+      this.callack(block);
+      if (!this.storeInDB) return block;
+    }
+
+    if (block.transactions)
+      block["transactionCount"] = block.transactions.length;
+
     const savedBlock = await this.saveBlock(block);
-    console.log("Saved", savedBlock);
+
     const transactions = block.transactions;
 
     for (const transaction of transactions) {

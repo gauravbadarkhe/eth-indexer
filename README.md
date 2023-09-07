@@ -13,12 +13,9 @@ Writing my first Indexer to query The Ethereum Block Chain
 - [x] Select a db
 - [x] Live Logs of the indexer syncing
 - [x] Cleanup and store data in db
-- [ ] Catch Errors in Syncing and add to the remote log service
-- [ ] Use Graph QL To Querry The Database --May be
-- [ ] Simple React Frontend
-- [ ] Dockerise
-- [ ] Test & Deploy
-- [ ] Done! Now lets Grab a coffee!
+- [x] Catch Errors in Syncing and add to the remote log service
+- [x] Use Graph QL To Querry The Database --May be
+- [x] Dockerise
 
 # 2PM - Run A Node Locally.
 
@@ -92,3 +89,13 @@ MongoDB is going to be my personl choice.
 # 🚀🚀We have a live indexer!🚀🚀
 
 Using Subscribtions we are able to get latest block and index the black along with the transactions in the datbase. We are verry clost to being done now.
+
+# It's Done 💪
+
+We can now index blocks on ethereum network. We can even query legacy blocks BUT it consts money so....lets not do that right now.
+
+# Instrucitns to RUN
+
+```
+docker pull gauravbad555/eth-indexer:0.2
+```
